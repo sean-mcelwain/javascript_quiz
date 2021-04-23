@@ -1,184 +1,165 @@
-const startQuiz = document.getElementById("startQuiz");
-const quiz = document.getElementById("quiz");
-const question = document.getElementById("question");
-const answerA = document.getElementById("A");
-const answerB = document.getElementById("B");
-const answerC = document.getElementById("C");
-const answerD = document.getElementById("D");
-const counter = document.getElementById("counter");
-const timeGauge = document.getElementById("timeGauge");
-const scoreEl = document.getElementById("scoreContainer");
-const saveContainerEl = document.getElementById("saveContainer");
-const saveResult = document.getElementById("saveResults");
+var containerEl = $(".container");
+var containerHeader = $("<div>").addClass("header").text("JavaScript Quiz");
+var containerBody = $("<div>").addClass("containerBody");
+// var quizStart = $(".quizStart");
+var questionBoxEl = $("<div>").addClass("questionBox");
+var questionTextBox = $("<div>").addClass("questionTextBox");
+
+var questionResponse00 = $("<div>").addClass("questionResponse");
+var questionResponse01 = $("<div>").addClass("questionResponse");
+var questionResponse02 = $("<div>").addClass("questionResponse");
+var questionResponse03 = $("<div>").addClass("questionResponse");
+
+var quizBtn = $("<div>").addClass("quizBtn");
+var lineBreak00 = $("<div>").addClass("lineBreak");
+var lineBreak01 = $("<div>").addClass("lineBreak");
+
+var weatherBox = $("<div>").addClass("weatherBox");
+var timeBox = $("<div>").addClass("timeBox");
+var scoreBox = $("<div>").addClass("scoreBox");
+var scoreCurrent = $("<div>").addClass("scoreCurrent");
+var scoreCurrentVal = "scoreCurrent";
+var scoreSaved00 = $("<div>").addClass("scoreSaved");
+var scoreSavedVal00 = "Saved Score 00";
+var scoreSaved01 = $("<div>").addClass("scoreSaved");
+var scoreSavedVal01 = "Saved Score 00";
+var scoreSaved02 = $("<div>").addClass("scoreSaved");
+var scoreSavedVal02 = "Saved Score 00";
 
 // Question Bank
-let questionBank = [
-    {
+var question00 = {
         question : "What must a variable start with?",
-        answerA : "A letter, $ or _",
-        answerB : "Wrong",
-        answerC : "Wrong",
-        answerD : "Wrong",
-        correct : "A"
-    },{
+        response00 : "A letter, $ or _",
+        response01 : "Wrong00",
+        response02 : "Wrong00",
+        response03 : "Wrong00",
+        correct : "00"
+    };
+var question01 = {
         question : "What is a variable?",
-        answerA : "Wrong",
-        answerB : "Container for a piece of data",
-        answerC : "Wrong",
-        answerD : "Wrong",
-        correct : "B"
-    },{
+        response00 : "Container for a piece of data",
+        response01 : "Wrong01",
+        response02 : "Wrong01",
+        response03 : "Wrong01",
+        correct : "00"
+    };
+var question02 = {
         question : "Are variables case sensitive?",
-        answerA : "Wrong",
-        answerB : "Wrong",
-        answerC : "Yes",
-        answerD : "Wrong",
-        correct : "C"
-    },{
+        response00 : "Yes",
+        response01 : "Wrong02",
+        response02 : "Wrong02",
+        response03 : "Wrong02",
+        correct : "00"
+    };
+    var question03 = {
         question : "What will an undeclared variable return?",
-        answerA : "Wrong",
-        answerB : "Wrong",
-        answerC : "Undefined",
-        answerD : "Wrong",
-        correct : "C"
-    },{
+        response00 : "Undefined",
+        response01 : "Wrong03",
+        response02 : "Wrong03",
+        response03 : "Wrong03",
+        correct : "00"
+    };
+    var question04 = {
         question : "Two types of variable scope?",
-        answerA : "Wrong",
-        answerB : "Wrong",
-        answerC : "Local and Global",
-        answerD : "Wrong",
-        correct : "C"
-    },{
+        response00 : "Local and Global",
+        response01 : "Wrong04",
+        response02 : "Wrong04",
+        response03 : "Wrong04",
+        correct : "00"
+    };
+    var question05 = {
         question : "What are the properties of a Local Scope?",
-        answerA : "Wrong",
-        answerB : "Wrong",
-        answerC : "Within a function, only available within function",
-        answerD : "Wrong",
-        correct : "C"
-    },{
+        response00 : "Within a function, only available within function",
+        response01 : "Wrong05",
+        response02 : "Wrong05",
+        response03 : "Wrong05",
+        correct : "00"
+    };
+    var question06 = {
         question : "What are the properties of Global Scope?",
-        answerA : "Wrong",
-        answerB : "Wrong",
-        answerC : "Outside a function, available to any code outside that function (also within).",
-        answerD : "Wrong",
-        correct : "C"
-    },
-];
+        response00 : "Outside a function, available to any code outside that function (also within).",
+        response01 : "Wrong05",
+        response02 : "Wrong05",
+        response03 : "Wrong05",
+        correct : "00"
+    };
 
-// Additional Variables
 
-const questionFinal = questionBank.length - 1;
-var questionCurrent = 0;
-var count = 30;
-const questionTime = 0; // 30s
-const gaugeWidth = 150; // 150px
-const gaugeUnit = gaugeWidth / 30;
-var timer;
-var score = 0;
+
 
 // Function to load a question and answer from the Question Bank to the quiz
-function renderQuestion(){
-    let q = questionBank[questionCurrent];
-    
-    question.innerHTML = "<p>"+ q.question +"</p>";
-    answerA.innerHTML = q.answerA;
-    answerB.innerHTML = q.answerB;
-    answerC.innerHTML = q.answerC;
-    answerD.innerHTML = q.answerD;
-}
+function loadQuestion(){
+//    questionTextValue = questionBank.question;
 
-startQuiz.addEventListener("click",startQuizQuiz);
+}
 
 // Function to start the Quiz
-function startQuizQuiz(){
-    startQuiz.style.display = "none";
-    quiz.style.display = "block";
-    renderQuestion();
-    renderCounter();
-    timer = setInterval(renderCounter,1000); // 1000ms = 1s
-}
 
-// Function to load and run the counter with a time remaining guage
-
-function renderCounter(){
-    if(count >= questionTime){
-        counter.innerHTML = count;
-        timeGauge.style.width = count * gaugeUnit + "px";
-        count--
-    }else{
-        // Function for Correct Answer behaviors, and then loan the next Question Set
-        answerIncorrect();
-        if(questionCurrent < questionFinal){
-            questionCurrent++;
-            renderQuestion();
-        }else{
-            // Ends the Quiz if no more questions remain
-            clearInterval(timer);
-            endQuiz();
-        }
-    }
-    if(count == 0){
-        endQuiz();
-    }
-}
-
-// checkAnwer
-
-function checkAnswer(answer){
-    if( answer == questionBank[questionCurrent].correct){
-        score++;
-        answerCorrect();
-    }else{
-        answerIncorrect();
-    }
-
-    if(questionCurrent < questionFinal){
-        questionCurrent++;
-        renderQuestion();
-    }else{
-        // end the quiz and show the score
-        clearInterval(timer);
-        endQuiz();
-    }
-}
-
-// Function for Correct Answer behaviors, changes the timer color to green and resets the count to 30 seconds
-function answerCorrect(){
-    count = 30;
-    document.getElementById("timer").style.color = "#12CB3C";
-    }
-
-// Function for Incorrect Answer behaviors, changes the timer color to red and reduces the time by 5 seconds
-function answerIncorrect(){
-    var penalty = count - 5;
-    count = penalty;
-    document.getElementById("timer").style.color = "#B91428";
-}
-
-// Function to end the Quiz and call the Score Function
-
-function endQuiz(){
-    quiz.style.display = "none";
-    scoreEl.style.display = "none"
-    renderScore();
-}
-
-// Score Function
-function renderScore(){
-    scoreEl.style.display = "inline-block";
-    scoreEl.style.width = "300px";
-
-    // Calculate Score as a Percentage
-    const scorePerCent = Math.round(100 * score/questionBank.length);
+    $(".quizStart").click(function(){
+        $(".quizStart").css({"display": "none"});
+        $(".container").css({"display": "block"});
+    });
+    console.log(questionTextValue);
+    console.log(question00.question);
 
 
-    // Display Score and Save Result Button
-    scoreEl.innerHTML += "<h2>My Results:</h2><p>Score: "+ scorePerCent +"%</p>";
-    scoreEl.innerHTML += "<div id='saveResults'>Save Results</div>";
-    
-    
-}
-saveResult.addEventListener("click", function (event){
-    event.preventDefault();
-    saveContainerEl.style.display = "inline-block";
+/*function loadQuestion(){
+    var = questionBank[questionCurrent];
+
+};
+*/
+
+var questionTextValue = question00.question;
+var questionResponseVal00 = question00.response00;
+var questionResponseVal01 = question00.response01;
+var questionResponseVal02 = question00.response02;
+var questionResponseVal03 = question00.response03;
+
+
+
+containerEl.append(containerHeader);
+containerEl.append(containerBody);
+containerBody.append(questionBoxEl);
+
+questionBoxEl.append(questionTextBox);
+questionTextBox.text(questionTextValue);
+questionBoxEl.append(questionResponse00);
+questionResponse00.text(questionResponseVal00);
+questionBoxEl.append(questionResponse01);
+questionResponse01.text(questionResponseVal01);
+questionBoxEl.append(questionResponse02);
+questionBoxEl.append(questionResponse03);
+questionResponse03.text(questionResponseVal02);
+questionResponse02.text(questionResponseVal03);
+
+questionBoxEl.append(lineBreak00);
+
+
+
+
+containerBody.append(weatherBox);
+weatherBox.append(timeBox);
+timeBox.text("Container for Timer");
+
+
+weatherBox.append(scoreBox);
+scoreBox.append(scoreCurrent);
+scoreCurrent.text(scoreCurrentVal);
+scoreBox.append(lineBreak01);
+scoreBox.append(scoreSaved00);
+scoreSaved00.text(scoreSavedVal00);
+scoreBox.append(scoreSaved01);
+scoreSaved01.text(scoreSavedVal00);
+scoreBox.append(scoreSaved02);
+scoreSaved02.text(scoreSavedVal00);
+
+$(".questionResponse").click(function(){
+    console.log("Hello")
+    questionTextBox.text(question01.question);
+    questionResponse00.text(question01.response00);
+    questionResponse01.text(question01.response01);
+    questionResponse02.text(question01.response02);
+    questionResponse03.text(question01.response03);
 });
+
+
