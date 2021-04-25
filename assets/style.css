@@ -71,6 +71,17 @@ body {
   padding:10px;
 }
 
+.resultBox {
+  padding: 10px;
+  height : 300px;
+  padding-bottom: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+
+
+}
+
 .lineBreak {
   content: " ";
   display: block;
@@ -101,7 +112,7 @@ body {
 }
 
 
-.weatherBox{
+.sideBox{
   display: inline-block;
   width: 200px;
   padding-right: 20px;
