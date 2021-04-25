@@ -1,13 +1,14 @@
 var containerEl = $(".container");
 var containerHeader = $("<div>").addClass("header").text("JavaScript Quiz");
 var containerBody = $("<div>").addClass("containerBody");
-// var quizStart = $(".quizStart");
 var questionBoxEl = $("<div>").addClass("questionBox");
 var questionTextBox = $("<div>").addClass("questionTextBox");
 var resultBox = $("<div>").addClass("resultBox");
 var saveBtn = $("<div>").addClass("saveBtn");
 var retryBtn = $("<div>").addClass("saveBtn");
 var userName
+
+
 
 
 var questionResponse00 = $("<div>").addClass("questionResponse").attr('id', "question00");
@@ -37,9 +38,9 @@ var quiz = {
             question : "What must a variable start with?",
             responses : [
                         "A letter, $ or _",
-                        "Wrong00",
-                        "Wrong00",
-                        "Wrong00",
+                        "A lowercase letter",
+                        "Whatever character you like",
+                        "A tilde(~)",
                         ],
             answer : 0
             },
@@ -47,9 +48,9 @@ var quiz = {
             question : "What is a variable?",
             responses : [
                         "Container for a piece of data",
-                        "Wrong00",
-                        "Wrong00",
-                        "Wrong00",
+                        "Something very able",
+                        "It's like life, what you make it",
+                        "Unlike a constant, it contains immutable data",
                         ],
             answer : 0
             },
@@ -57,9 +58,9 @@ var quiz = {
             question : "Are variables case sensitive?",
             responses : [
                         "Yes",
-                        "Wrong00",
-                        "Wrong00",
-                        "Wrong00",
+                        "No",
+                        "Yes, but JS will cut ya break once in while",
+                        "No, but you should know better because it's sloppy",
                         ],
             answer : 0
             },
@@ -67,9 +68,9 @@ var quiz = {
             question : "What will an undeclared variable return?",
             responses : [
                         "Undefined",
-                        "Wrong00",
-                        "Wrong00",
-                        "Wrong00",
+                        "Null",
+                        "Error 865",
+                        "The value you actually intended, it is pretty intuitive",
                         ],
             answer : 0
             },
@@ -77,36 +78,33 @@ var quiz = {
             question : "Two types of variable scope?",
             responses : [
                         "Local and Global",
-                        "Wrong00",
-                        "Wrong00",
-                        "Wrong00",
+                        "Urban and Rural",
+                        "Foreign and Domestic",
+                        "Unary and Binary",
                         ],
             answer : 0
             },
     {
             question : "What are the properties of a Local Scope?",
             responses : [
-                        "Within a function, only available within function",
-                        "Wrong00",
-                        "Wrong00",
-                        "Wrong00",
+                        "Within a function, and only available within function",
+                        "To target something in short range",
+                        "Available anywhere in your code",
+                        "Available to users only in your local area network",
                         ],
             answer : 0
             },
     {
             question : "What are the properties of Global Scope?",
             responses : [
-                        "Within a function, only available within function",
-                        "Wrong00",
-                        "Wrong00",
-                        "Wrong00",
+                        "Declared outside a function, and generally available",
+                        "International, Influential, Revolutionary, etc.",
+                        "Round, Circular, Globular, and Spherical Properties",
+                        "The mouthwash dentists worldwide recommend",
                         ],
             answer : 0
             }
-
     ],
-    now: 0, // current question
-
 };
 
 
@@ -117,8 +115,6 @@ var quiz = {
         $(".quizStart").css({"display": "none"});
         $(".container").css({"display": "block"});
     });
-
-    console.log(quiz.data[quiz.now].question)
 
 
 /*function loadQuestion(){
@@ -243,8 +239,7 @@ resultBox.text(score +" / 6")
 
 
 
-//$("#question01").on("click", function (){
 
 
-//});
+
 
