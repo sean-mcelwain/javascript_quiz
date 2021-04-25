@@ -146,6 +146,27 @@ body {
   border-radius: 2px;
 
 }
+.saveBtn {
+  
+  background-color: #323330bb;
+  margin-top: 10px;
+  height: 20px;
+  color: white;
+  text-align: left;
+  width: 200px;
+  padding: 7px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-radius: 2px;
+
+}
+
+.saveBtn:hover {
+  font-weight: bold;
+  background-color: #3233308a;
+  transition: all 0.3s ease-in-out;
+}
+
 .scoreSaved {
   
   background-color: #323330bb;

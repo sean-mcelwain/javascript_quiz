@@ -5,6 +5,10 @@ var containerBody = $("<div>").addClass("containerBody");
 var questionBoxEl = $("<div>").addClass("questionBox");
 var questionTextBox = $("<div>").addClass("questionTextBox");
 var resultBox = $("<div>").addClass("resultBox");
+var saveBtn = $("<div>").addClass("saveBtn");
+var retryBtn = $("<div>").addClass("saveBtn");
+var userName
+
 
 var questionResponse00 = $("<div>").addClass("questionResponse").attr('id', "question00");
 var questionResponse01 = $("<div>").addClass("questionResponse").attr('id', "question00");
@@ -175,7 +179,13 @@ loadQuestion();
 containerBody.append(sideBox);
 sideBox.append(timeBox);
 timeBox.text("Container for Timer");
-
+       
+var scoreSavedVal02 = (localStorage.getItem("Saved_Score03"));
+localStorage.setItem("Saved_Score04", (scoreSavedVal02));
+var scoreSavedVal01 = (localStorage.getItem("Saved_Score02"));
+localStorage.setItem("Saved_Score03", (scoreSavedVal01));
+var scoreSavedVal00 = (localStorage.getItem("Saved_Score"));
+localStorage.setItem("Saved_Score02", (scoreSavedVal00));
 
 sideBox.append(scoreBox);
 scoreBox.append(scoreCurrent);
@@ -184,9 +194,9 @@ scoreBox.append(lineBreak01);
 scoreBox.append(scoreSaved00);
 scoreSaved00.text(scoreSavedVal00);
 scoreBox.append(scoreSaved01);
-scoreSaved01.text(scoreSavedVal00);
+scoreSaved01.text(scoreSavedVal01);
 scoreBox.append(scoreSaved02);
-scoreSaved02.text(scoreSavedVal00);
+scoreSaved02.text(scoreSavedVal02);
 
 $(".questionResponse").on("click", function (){
 
@@ -199,7 +209,39 @@ $("#correct").on("click", function (){
     score++;
     console.log(score);
     scoreCurrent.text(score +" / 6");
+    resultBox.text(score +" / 6")
+    var p = $("<p>")
+    if (score > 3){
+        resultBox.append(p);
+        p.text("You passed!");
+        resultBox.append(saveBtn);
+        saveBtn.text("Save your score")
+
+    } else{
+        resultBox.append(p);
+        p.text("Better Luck Next Time")
+        resultBox.append(retryBtn);
+        retryBtn.text("Retry")
+        retryBtn.on("click", function (){
+        window.location.reload();
+    });
+    }
+    saveBtn.on("click", function (){
+        userName = prompt("What is your name?")
+        localStorage.setItem("Saved_Score", (userName + ": " + score + " / 6"));
+        window.location.reload();
+    });
+
+    
+    
+    
+
+
 });
+
+resultBox.text(score +" / 6")
+
+
 
 //$("#question01").on("click", function (){
 
