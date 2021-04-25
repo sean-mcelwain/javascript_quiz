@@ -22,6 +22,7 @@ var lineBreak01 = $("<div>").addClass("lineBreak");
 
 var sideBox = $("<div>").addClass("sideBox");
 var timeBox = $("<div>").addClass("timeBox");
+var timer = $("<div>").addClass("timer"); 
 var scoreBox = $("<div>").addClass("scoreBox");
 var scoreCurrent = $("<div>").addClass("scoreCurrent");
 var scoreCurrentVal = "scoreCurrent";
@@ -107,8 +108,6 @@ var quiz = {
     ],
 };
 
-
-
 // Function to start the Quiz
 
     $(".quizStart").click(function(){
@@ -170,11 +169,24 @@ loadQuestion();
 
 
 
+var count = 30;
+var endTime = 0;
 
 
 containerBody.append(sideBox);
 sideBox.append(timeBox);
-timeBox.text("Container for Timer");
+timeBox.append(timer);
+timer.text(count);
+
+
+function loadCounter(){
+        if (count >= endTime){
+        timer.text(count)
+        count--
+    }
+};
+
+
        
 var scoreSavedVal02 = (localStorage.getItem("Saved_Score03"));
 localStorage.setItem("Saved_Score04", (scoreSavedVal02));
@@ -223,7 +235,7 @@ $("#correct").on("click", function (){
     });
     }
     saveBtn.on("click", function (){
-        userName = prompt("What is your name?")
+        userName = prompt("What are your initials?")
         localStorage.setItem("Saved_Score", (userName + ": " + score + " / 6"));
         window.location.reload();
     });
