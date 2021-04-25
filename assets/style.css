@@ -119,11 +119,10 @@ body {
 }
 .timeBox {
   margin: 10px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
+
   height: 150px;
   width: 100%;
+  text-align: center;
 }
 .scoreBox {
   margin: 10px;
@@ -174,7 +173,33 @@ body {
   height: 20px;
   color: white;
   text-align: left;
+  padding: 7px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-radius: 2px;
 
+}
+.scoreSaved01 {
+  
+  background-color: #323330bb;
+  margin-top: 10px;
+  height: 20px;
+  color: white;
+  text-align: left;
+  padding: 7px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-radius: 2px;
+
+}
+
+.scoreSaved02 {
+  
+  background-color: #323330bb;
+  margin-top: 10px;
+  height: 20px;
+  color: white;
+  text-align: left;
   padding: 7px;
   font-size: 18px;
   margin-bottom: 10px;
@@ -183,42 +208,13 @@ body {
 }
 
 
+
 .timer{
   float: right;
   height : 100px;
   width : 200px;
   text-align: center;
   padding: 10px;
-  font-size: 50px;
-}
-.counter{
-  font-size: 3em;
-}
-.btimeGauge{
-  width : 150px;
-  height : 10px;
-  border-radius: 10px;
-  background-color: lightgray;
-  margin-left : 25px;
-}
-.timeGauge{
-  height : 10px;
-  border-radius: 5px;
-  background-color: lightskyblue;
-  margin-top : -10px;
-  margin-left : 25px;
-}
-.progress{
+  font-size: 80px;
 
-  padding:5px;
-  text-align: left;
-}
-.prog{
-  width : 25px;
-  height : 25px;
-  border: 1px solid #000;
-  display: inline-block;
-  border-radius: 40%;
-  margin-left : 5px;
-  margin-right : 5px;
 }
