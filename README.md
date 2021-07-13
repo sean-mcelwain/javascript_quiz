@@ -36,7 +36,7 @@ Email: sean.mcelwain.KUBootcamp@gmail.com.
 For any question regarding this project, my preferred method of communication is via email. 
 
 <a name='screenshot'></a>
-# Screenshot:
+# Screenshots:
 
 ![Screenshot](https://github.com/sean-mcelwain/javascript_quiz/blob/main/assets/screenshot.jpg)
 ![Screenshot](https://github.com/sean-mcelwain/javascript_quiz/blob/main/assets/screenshot01.jpg)
