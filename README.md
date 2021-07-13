@@ -1,5 +1,5 @@
-# javascript_quiz
-# Read ME
+# JavaScript Quiz Read ME
+
 # Description
 
 This is WebPage containing a simple Javascript Quiz that allows a user to take a quiz over Javascript material and then give a score. 
