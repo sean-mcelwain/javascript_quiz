@@ -2,7 +2,7 @@
 <a name='description'></a>
 ## Description
 
-This is WebPage containing a simple Javascript Quiz that allows a user to take a quiz over Javascript material and then give a score. This app utilizes: (1) HTML, (2) CSS, and (3) Javascript.
+This is webpage containing a simple JavaScript Quiz that allows a user to take a quiz over JavaScript material and then give a score. This app utilizes: (1) HTML, (2) CSS, and (3) Javascript.
 
 # URL: https://sean-mcelwain.github.io/javascript_quiz/
 
