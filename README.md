@@ -1,8 +1,10 @@
 # JavaScript Quiz - Read ME
 <a name='description'></a>
-# Description
+## Description
 
 This is WebPage containing a simple Javascript Quiz that allows a user to take a quiz over Javascript material and then give a score. 
+
+# URL: https://sean-mcelwain.github.io/javascript_quiz/
 
 ## Table of Contents  
  1. [ Description. ](#description)   
@@ -10,8 +12,6 @@ This is WebPage containing a simple Javascript Quiz that allows a user to take a
  3. [ License. ](#license)  
  4. [ Questions. ](#questions)  
  5. [ Screenshot. ](#screenshot) 
-
-# URL: https://sean-mcelwain.github.io/javascript_quiz/
 
  <a name='usage'></a>
  ## Usage 
