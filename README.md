@@ -1,4 +1,4 @@
-# JavaScript Quiz Read ME
+# JavaScript Quiz - Read ME
 <a name='description'></a>
 # Description
 
